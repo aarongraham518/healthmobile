@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View, ImageBackground, Image, Button, Pressable } from "react-native";
+import { StyleSheet, Text, View, ImageBackground, TouchableOpacity, Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export const Promo = ({promoImage, background, promoText, promoSubText}) => {
-  
+  const navigation = useNavigation();
   return (
-    <View style={[styles.container, {borderColor: background}]}>
+    <TouchableOpacity style={[styles.container, {borderColor: background}]} onPress={() => navigation.navigate("MedicalChecks")}>
       <ImageBackground
         source={promoImage}
         resizeMode="cover"
@@ -20,7 +21,7 @@ export const Promo = ({promoImage, background, promoText, promoSubText}) => {
        </Pressable>
       
       </ImageBackground>
-    </View>
+    </TouchableOpacity>
   );
 };
 

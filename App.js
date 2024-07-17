@@ -18,6 +18,7 @@ import { DocScreen } from "./screens/DocScreen";
 import { AppProvider } from './store/AppContext';
 import DoctorProfileScreen from "./screens/DrProfileScreen";
 import BookingComponent from "./components/ui/BookingComponent";
+import MedicalChecks from "./screens/MedicalChecks";
 
 //add screenOptions to Tab.Navigator
 const Stack = createNativeStackNavigator();
@@ -99,17 +100,12 @@ export default function App() {
           component={NotificationsScreen}
         />
         <Stack.Screen name="FavoriteDrScreen" component={FavoriteDrScreen} />
-
         <Stack.Screen name="MedDetailsScreen" component={MedDetailScreen} />
-
         <Stack.Screen name="MapScreen" component={MapScreen} />
-
         <Stack.Screen name="DocScreen" component={DocScreen} />
-
         <Stack.Screen name="DocProfile" component={DoctorProfileScreen} />
-
         <Stack.Screen name="BookAppt" component={BookingComponent} />
-
+        <Stack.Screen name="MedicalChecks" component={MedicalChecks} />
       </Stack.Navigator>
     </NavigationContainer>
     </AppProvider>
