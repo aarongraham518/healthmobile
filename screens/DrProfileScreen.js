@@ -10,9 +10,6 @@ const DoctorProfileScreen = ({route}) => {
 
   const {data} = route.params;
 
-  const doSomething = () => {
-    console.log('I am doing something');
-  }
   return (
     <View style={styles.container}>
       <View style={styles.gradient}>

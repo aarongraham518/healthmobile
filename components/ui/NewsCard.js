@@ -1,6 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
 import { FontAwesome } from '@expo/vector-icons';
+import { Colors } from '../../constants/styles';
 
 const NewsCard = ({ image, category, title, author, time, comments }) => {
   return (
@@ -27,10 +28,12 @@ const NewsCard = ({ image, category, title, author, time, comments }) => {
 
 const styles = StyleSheet.create({
   card: {
-    width: '100%',
+    width: '91%',
     flexDirection: 'row',
+    // justifyContent: 'center',
+    // alignItems: 'center',
     marginVertical: 8,
-    marginHorizontal: 4,
+    marginLeft: 12,
     borderRadius: 8,
     backgroundColor: '#fff',
     shadowColor: "#000",
@@ -38,6 +41,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 8,
     elevation: 5,
+    // padding: 20,
+    borderWidth: 2,
+    borderColor: Colors.primaryBlue100
     
   },
   image: {
@@ -58,8 +64,8 @@ const styles = StyleSheet.create({
   },
   category: {
     fontSize: 12,
-    color: '#FF6347',
-    backgroundColor: '#FFE4E1',
+    color: Colors.primaryBlue100,
+    backgroundColor: Colors.primaryBlueBackground,
     padding: 4,
     borderRadius: 4,
   },

@@ -18,7 +18,7 @@ import { DocScreen } from "./screens/DocScreen";
 import { AppProvider } from './store/AppContext';
 import DoctorProfileScreen from "./screens/DrProfileScreen";
 import BookingComponent from "./components/ui/BookingComponent";
-import MedicalChecks from "./screens/MedicalChecks";
+import MedicalChecks from "./screens/MedicalChecksScreen";
 import GeneralScreen from "./screens/GeneralScreen";
 
 //add screenOptions to Tab.Navigator

@@ -1,8 +1,15 @@
 import React from "react";
-import { View, Text, StyleSheet, Dimensions, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  ScrollView,
+  SafeAreaView,
+} from "react-native";
 import { LineChart, BarChart, ProgressChart } from "react-native-chart-kit";
 
-const MedicalChecks = () => {
+const MedicalChecksScreen = () => {
   const screenWidth = Dimensions.get("window").width;
 
   const lineData = {
@@ -26,7 +33,7 @@ const MedicalChecks = () => {
 
   const progressData = {
     labels: ["Swim", "Bike", "Walk", "Run", "Kayak", "Other"],
-    data: [0.6, 0.7, 0.8, 0.9, 0.5, 0.4], 
+    data: [0.6, 0.7, 0.8, 0.9, 0.5, 0.4],
     // colors: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#00ffff", "#ff00ff"],
   };
 
@@ -49,37 +56,39 @@ const MedicalChecks = () => {
   };
 
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <Text style={styles.header}>Blood Pressure Monitor</Text>
-        <LineChart
-          data={lineData}
-          width={screenWidth}
-          height={220}
-          chartConfig={chartConfig}
-          bezier
-          style={styles.chartStyle}
-        />
+    <SafeAreaView>
+      <ScrollView>
+        <View style={styles.container}>
+          <Text style={styles.header}>Blood Pressure Monitor</Text>
+          <LineChart
+            data={lineData}
+            width={screenWidth}
+            height={220}
+            chartConfig={chartConfig}
+            bezier
+            style={styles.chartStyle}
+          />
 
-        <Text style={styles.header}>Stress Levels</Text>
-        <BarChart
-          data={barData}
-          width={screenWidth}
-          height={220}
-          chartConfig={chartConfig}
-          style={styles.chartStyle}
-        />
+          <Text style={styles.header}>Stress Levels</Text>
+          <BarChart
+            data={barData}
+            width={screenWidth}
+            height={220}
+            chartConfig={chartConfig}
+            style={styles.chartStyle}
+          />
 
-        <Text style={styles.header}>Activity Progress</Text>
-        <ProgressChart
-          data={progressData}
-          width={screenWidth}
-          height={220}
-          chartConfig={chartConfig}
-          style={styles.chartStyle}
-        />
-      </View>
-    </ScrollView>
+          <Text style={styles.header}>Activity Progress</Text>
+          <ProgressChart
+            data={progressData}
+            width={screenWidth}
+            height={220}
+            chartConfig={chartConfig}
+            style={styles.chartStyle}
+          />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -111,4 +120,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MedicalChecks;
+export default MedicalChecksScreen;

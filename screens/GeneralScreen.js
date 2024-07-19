@@ -1,6 +1,7 @@
 import React from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, SafeAreaView } from "react-native";
 import NewsCard from "../components/ui/NewsCard";
+import HorizontalScrollView from "../components/ui/HorizontalScroll";
 
 const newsData = [
     {
@@ -46,8 +47,9 @@ const newsData = [
   ];
 
 const GeneralScreen = () => {
-  return <View style={styles.container}>
-     <ScrollView>
+  return <SafeAreaView style={styles.container}>
+     <ScrollView showsVerticalScrollIndicator={false}>
+        <HorizontalScrollView/>
       {newsData.map((news, index) => (
         <NewsCard
           key={index}
@@ -60,7 +62,7 @@ const GeneralScreen = () => {
         />
       ))}
     </ScrollView>
-  </View>;
+  </SafeAreaView>;
 };
 
 export default GeneralScreen;
@@ -71,6 +73,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     // alignItems: "center",
     backgroundColor: "#ffffff",
-    padding: 15,
+    paddingHorizontal: 20,
   },
 });
