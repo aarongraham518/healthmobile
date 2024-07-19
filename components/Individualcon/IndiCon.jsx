@@ -3,9 +3,9 @@ import { Ionicons } from "@expo/vector-icons";
 
 export const IndiCon = ({name, color, size}) => {
     return (
-        <Pressable style={styles.iconContainer}>
+        <View style={styles.iconContainer}>
           <Ionicons name={name} color={color} size={size} />
-        </Pressable>
+        </View>
     )
 }
 

@@ -1,11 +1,19 @@
-import { Pressable, View, Text, StyleSheet } from "react-native";
+import {
+  Pressable,
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { IndiCon } from "../Individualcon/IndiCon";
+import { useNavigation } from "@react-navigation/native";
 
 const appData = [
   {
     name: "people",
     specialty: "General",
+    url: "GeneralNews",
   },
   {
     name: "eye",
@@ -37,13 +45,19 @@ const appData = [
   },
 ];
 export const DoctorNav = () => {
+  // console.log(appData[1].name, "<--appdata");
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       {appData.map((data, index) => (
-        <View key={index} style={styles.navContainer}>
+        <TouchableOpacity
+          style={styles.navContainer}
+          key={index}
+          onPress={() => navigation.navigate(`${appData[index].url}`)}
+        >
           <IndiCon name={data.name} color={"#2786f2"} size={28} />
           <Text style={styles.specialtyText}>{data.specialty}</Text>
-        </View>
+        </TouchableOpacity>
       ))}
     </View>
   );
@@ -58,7 +72,9 @@ const styles = StyleSheet.create({
     marginTop: 26,
     marginBottom: 10,
   },
-  navContainer: {},
+  navContainer: {
+
+  },
   specialtyText: {
     marginTop: 15,
     fontWeight: "500",
