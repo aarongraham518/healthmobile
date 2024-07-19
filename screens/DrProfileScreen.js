@@ -1,9 +1,24 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, Pressable } from "react-native";
+import { View, Text, StyleSheet, Image, Linking, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from '@react-navigation/native';
 import { CustomButton } from "../components/ui/CustomButton";
 import MyModal from "../components/ui/MyModal";
+
+//function to make call
+const makeCall = (phoneNumber) => {
+  let phoneUrl = `tel:${phoneNumber}`;
+  
+  Linking.canOpenURL(phoneUrl)
+    .then((supported) => {
+      if (!supported) {
+        Alert.alert('Phone number is not available');
+      } else {
+        return Linking.openURL(phoneUrl);
+      }
+    })
+    .catch((err) => console.error('An error occurred', err));
+};
 
 const DoctorProfileScreen = ({route}) => {
   const navigation = useNavigation();
@@ -25,12 +40,16 @@ const DoctorProfileScreen = ({route}) => {
               <Text style={styles.hospital}>United States Hospital</Text>
               <View style={styles.iconsContainer}>
                 <View style={styles.commBackGrnd}>
+                  <TouchableOpacity onPress={() => makeCall(data.number)}>
                   <Ionicons
                     name="phone-portrait-outline"
                     size={30}
                     color="#1862b7"
                     style={styles.icon}
                   />
+                 
+                  </TouchableOpacity>
+                  
                 </View>
                 <View style={styles.commBackGrnd}>
                   <Ionicons

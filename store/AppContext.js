@@ -15,6 +15,7 @@ export const AppProvider = ({ children }) => {
       rating: 4.9,
       reviews: "16,532",
       image: require("../assets/femaledoc3.png"),
+      number: '5182758237'
     },
     {
       id: Math.random(),
@@ -24,6 +25,7 @@ export const AppProvider = ({ children }) => {
       rating: 4.2,
       reviews: "4,532",
       image: require("../assets/maledoc1.png"),
+      number: '5182758237'
     },
     {
       id: Math.random(),
@@ -33,6 +35,7 @@ export const AppProvider = ({ children }) => {
       rating: 4.6,
       reviews: "4,532",
       image: require("../assets/femaledoc1.png"),
+      number: '5182758237'
     },
     {
       id: Math.random(),
@@ -42,6 +45,7 @@ export const AppProvider = ({ children }) => {
       rating: 4.8,
       reviews: "10,532",
       image: require("../assets/femaledoc2.png"),
+      number: '5182758237'
     },
     {
       id: Math.random(),
@@ -51,6 +55,7 @@ export const AppProvider = ({ children }) => {
       rating: 4.9,
       reviews: "16,532",
       image: require("../assets/femaledoc3.png"),
+      number: '5182758237'
     },
     {
       id: Math.random(),
@@ -60,6 +65,7 @@ export const AppProvider = ({ children }) => {
       rating: 4.2,
       reviews: "4,532",
       image: require("../assets/maledoc1.png"),
+      number: '5182758237'
     },
     {
       id: Math.random(),
@@ -69,6 +75,7 @@ export const AppProvider = ({ children }) => {
       rating: 4.6,
       reviews: "4,532",
       image: require("../assets/femaledoc1.png"),
+      number: '5182758237'
     },
     {
       id: Math.random(),
@@ -78,6 +85,7 @@ export const AppProvider = ({ children }) => {
       rating: 4.8,
       reviews: "10,532",
       image: require("../assets/femaledoc2.png"),
+      number: '5182758237'
     },
   ]);
 
