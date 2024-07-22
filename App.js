@@ -15,11 +15,13 @@ import { MedDetailScreen } from "./screens/MedDetailScreen";
 import { MedSearchScreen } from "./screens/MedSearchScreen";
 import { DocScreen } from "./screens/DocScreen";
 
-import { AppProvider } from './store/AppContext';
+import { AppProvider } from "./store/AppContext";
 import DoctorProfileScreen from "./screens/DrProfileScreen";
 import BookingComponent from "./components/ui/BookingComponent";
 import MedicalChecks from "./screens/MedicalChecksScreen";
 import GeneralScreen from "./screens/GeneralScreen";
+import RegisterScreen from "./screens/RegistrationScreen";
+import LoginScreen from "./screens/LoginScreen";
 
 //add screenOptions to Tab.Navigator
 const Stack = createNativeStackNavigator();
@@ -57,25 +59,6 @@ function MyTabs() {
         }}
       />
 
-      {/* <BottomTab.Screen
-        name="Meds"
-        component={MedDetailScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="beaker" color={color} size={size} />
-          ),
-        }}
-      /> */}
-
-      {/* <BottomTab.Screen
-        name="Map"
-        component={MapScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="map" color={color} size={size} />
-          ),
-        }}
-      /> */}
       <BottomTab.Screen
         name="Settings"
         component={SettingsScreen}
@@ -92,24 +75,29 @@ function MyTabs() {
 export default function App() {
   return (
     <AppProvider>
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Notifications" component={MyTabs} />
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="Register"
+          screenOptions={{ headerShown: false }}
+        >
+          <Stack.Screen name="Notifications" component={MyTabs} />
 
-        <Stack.Screen
-          name="NotificationsScreen"
-          component={NotificationsScreen}
-        />
-        <Stack.Screen name="FavoriteDrScreen" component={FavoriteDrScreen} />
-        <Stack.Screen name="MedDetailsScreen" component={MedDetailScreen} />
-        <Stack.Screen name="MapScreen" component={MapScreen} />
-        <Stack.Screen name="DocScreen" component={DocScreen} />
-        <Stack.Screen name="DocProfile" component={DoctorProfileScreen} />
-        <Stack.Screen name="BookAppt" component={BookingComponent} />
-        <Stack.Screen name="MedicalChecks" component={MedicalChecks} />
-        <Stack.Screen name="GeneralNews" component={GeneralScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+          <Stack.Screen
+            name="NotificationsScreen"
+            component={NotificationsScreen}
+          />
+          <Stack.Screen name="FavoriteDrScreen" component={FavoriteDrScreen} />
+          <Stack.Screen name="MedDetailsScreen" component={MedDetailScreen} />
+          <Stack.Screen name="MapScreen" component={MapScreen} />
+          <Stack.Screen name="DocScreen" component={DocScreen} />
+          <Stack.Screen name="DocProfile" component={DoctorProfileScreen} />
+          <Stack.Screen name="BookAppt" component={BookingComponent} />
+          <Stack.Screen name="MedicalChecks" component={MedicalChecks} />
+          <Stack.Screen name="GeneralNews" component={GeneralScreen} />
+          <Stack.Screen name="Register" component={RegisterScreen} />
+          <Stack.Screen name="Login" component={LoginScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </AppProvider>
   );
 }
