@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import axios from 'axios';
+import { useNavigation } from '@react-navigation/native';
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  const navigation = useNavigation();
   const handleLogin = async () => {
+    
     try {
       const response = await axios.post('http://localhost:3000/login', {
         username,
         password,
       });
-      alert('Login successful');
+      // alert('Login successful');
+      navigation.navigate('HomeScreen');
     } catch (error) {
+      console.log(error, '<--our error');
       alert('Error logging in');
     }
   };

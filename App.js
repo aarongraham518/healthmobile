@@ -77,10 +77,11 @@ export default function App() {
     <AppProvider>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Register"
+          initialRouteName="Login"
           screenOptions={{ headerShown: false }}
         >
-          <Stack.Screen name="Notifications" component={MyTabs} />
+          <Stack.Screen name="HomeScreen" component={MyTabs} />
+          {/* <Stack.Screen name="Notifications" component={MyTabs} /> */}
 
           <Stack.Screen
             name="NotificationsScreen"
@@ -96,6 +97,7 @@ export default function App() {
           <Stack.Screen name="GeneralNews" component={GeneralScreen} />
           <Stack.Screen name="Register" component={RegisterScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
+          
         </Stack.Navigator>
       </NavigationContainer>
     </AppProvider>
