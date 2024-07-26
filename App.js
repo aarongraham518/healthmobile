@@ -2,7 +2,6 @@ import * as React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-// import {HomeScreen} from "./screens/HomeScreen";
 import { NotificationsScreen } from "./screens/NotificationsScreen";
 
 import { FavoriteDrScreen } from "./screens/FavoriteDrScreen";
@@ -80,7 +79,7 @@ export default function App() {
           initialRouteName="Login"
           screenOptions={{ headerShown: false }}
         >
-          <Stack.Screen name="HomeScreen" component={MyTabs} />
+          <Stack.Screen name="TabDirectHome" component={MyTabs} />
           {/* <Stack.Screen name="Notifications" component={MyTabs} /> */}
 
           <Stack.Screen

@@ -1,97 +1,69 @@
 // screens/LoginScreen.js
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, SafeAreaView } from 'react-native';
-import axios from 'axios';
-import { useNavigation } from '@react-navigation/native';
-import { Colors } from '../constants/styles';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, CheckBox } from 'react-native';
 
 export default function LoginScreen() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
-  const navigation = useNavigation();
-  const handleLogin = async () => {
-    
-    try {
-      const response = await axios.post('http://localhost:3000/login', {
-        username,
-        password,
-      });
-      // alert('Login successful');
-      navigation.navigate('TabDirectHome');
-    } catch (error) {
-      console.log(error, '<--our error');
-      alert('Error logging in');
-    }
-  };
+  const [rememberMe, setRememberMe] = useState(false);
 
   return (
-    <>
-    <SafeAreaView/>
-    
     <View style={styles.container}>
-    <Text style={styles.title1}>Mobile Health Beta</Text>
       <View style={styles.imageContainer}>
-        <Image source={require("../assets/medicalLogin.png")} style={styles.image} />
+        <Image source={{ uri: 'https://your-image-url.com' }} style={styles.image} />
       </View>
-      <Text style={styles.title2}>Login</Text>
+      <Text style={styles.title}>Login</Text>
       <Text style={styles.subtitle}>Please Sign in to continue.</Text>
       <TextInput
         style={styles.input}
         placeholder="Username"
-        placeholderTextColor="black"
         value={username}
         onChangeText={setUsername}
       />
       <TextInput
         style={styles.input}
         placeholder="Password"
-        placeholderTextColor="black"
         secureTextEntry
         value={password}
         onChangeText={setPassword}
       />
       <View style={styles.rememberMeContainer}>
+        <CheckBox
+          value={rememberMe}
+          onValueChange={setRememberMe}
+          style={styles.checkbox}
+        />
         <Text style={styles.rememberMeText}>Remember me next time</Text>
       </View>
-
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+      <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Sign In</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+      <TouchableOpacity>
         <Text style={styles.signUpText}>Don't have an account? Sign Up</Text>
       </TouchableOpacity>
     </View>
-    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 20,
-    // borderColor: 'green',
-    // borderWidth: 2
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
   },
   imageContainer: {
     marginBottom: 20,
   },
   image: {
-    width: '100%',
-    height: 250,
-    resizeMode: 'cover',
-    borderRadius: 20,
+    width: 100,
+    height: 100,
+    resizeMode: 'contain',
   },
-  title1: {
+  title: {
     fontSize: 32,
     fontWeight: 'bold',
     marginBottom: 10,
-  },
-  title2: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    marginBottom: 10,
-    color: '#1E90FF',
   },
   subtitle: {
     fontSize: 16,
@@ -100,14 +72,12 @@ const styles = StyleSheet.create({
   },
   input: {
     width: '100%',
-    backgroundColor: '#dbdbdb',
     height: 40,
-    borderColor: '#1E90FF',
-    borderWidth: 2,
-    borderRadius: 18,
+    borderColor: 'gray',
+    borderWidth: 1,
+    borderRadius: 5,
     paddingHorizontal: 10,
     marginBottom: 15,
-    color: 'black'
   },
   rememberMeContainer: {
     flexDirection: 'row',
@@ -126,7 +96,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#1E90FF',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 18,
+    borderRadius: 5,
     marginBottom: 20,
   },
   buttonText: {
@@ -135,7 +105,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   signUpText: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#1E90FF',
   },
 });
