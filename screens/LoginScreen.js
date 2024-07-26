@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
+import { Colors } from '../constants/styles';
 
 const LoginScreen = () => {
   const [username, setUsername] = useState('');
@@ -39,7 +40,13 @@ const LoginScreen = () => {
         value={password}
         onChangeText={setPassword}
       />
-      <Button title="Login" onPress={handleLogin} />
+      <View style={styles.btnCtr}>
+      <Button style={{color: Colors.primaryBlue100}} title="Login" onPress={handleLogin} />
+      <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+        <Text style={styles.regBtn}>Register</Text>
+      </TouchableOpacity>
+      </View>
+      
     </View>
   );
 };
@@ -57,6 +64,15 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     paddingHorizontal: 8,
   },
+  btnCtr:{
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  regBtn:{
+    color: '#0690ec',
+    fontSize: 18
+  }
 });
 
 export default LoginScreen;
